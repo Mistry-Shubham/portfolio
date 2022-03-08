@@ -10,7 +10,9 @@
 :root {
 	--fontcolor: #e1e1e1;
 	--background: linear-gradient(125deg, #040e1b, #000);
-	--hover: rgba(255, 0, 0, 0.6);
+	--red: #c80000;
+	--screen: #111;
+	--screen-theme: #ddd;
 }
 
 ::-webkit-scrollbar {
@@ -45,7 +47,7 @@ h1 {
 }
 
 h1:hover {
-	color: var(--hover);
+	color: var(--red);
 }
 
 header a {
@@ -75,7 +77,7 @@ nav ul li {
 }
 
 nav ul li a:hover {
-	color: var(--hover);
+	color: var(--red);
 }
 
 nav ul li:last-child {
@@ -144,6 +146,7 @@ section p {
 	left: 10%;
 	transform: translateY(-45%);
 	font-weight: 400;
+	z-index: 8;
 }
 
 .active-display p {
@@ -155,6 +158,83 @@ section p {
 	width: 700px;
 	transform: translateY(80%);
 	font-weight: 300;
+	z-index: 7;
+}
+
+section svg {
+	position: absolute;
+	width: 680px;
+	top: 60%;
+	right: -50%;
+	transform: translateY(-50%);
+	transition: 1s linear;
+	z-index: 5;
+}
+
+.active-display svg {
+	position: absolute;
+	width: 680px;
+	top: 60%;
+	right: 5%;
+	transform: translateY(-50%);
+	z-index: 5;
+}
+
+#screen path,
+#screen-2 path {
+	fill: var(--screen);
+}
+
+#theme path,
+#profile-1 path {
+	fill: var(--screen-theme);
+}
+
+#vector {
+	fill: var(--fontcolor);
+}
+
+.navigator {
+	position: fixed;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	height: 200px;
+	bottom: 50%;
+	transform: translateY(50%);
+	left: 5%;
+	justify-content: space-between;
+}
+
+.navigator li {
+	height: 20px;
+	border-radius: 50vw;
+	width: 5px;
+	background-color: var(--fontcolor);
+	transition: 0.2s linear;
+}
+
+.navigator li.active {
+	height: 40px;
+	border-radius: 50vw;
+	width: 4px;
+	background-color: var(--fontcolor);
+}
+
+@media only screen and (max-width: 980px) {
+	section svg {
+		width: 580px;
+		top: 50%;
+		right: -50%;
+		transform: translateY(-50%);
+	}
+
+	.active-display svg {
+		width: 580px;
+		top: 50%;
+		right: 5%;
+		transform: translateY(-50%);
+	}
 }
 
 @media only screen and (max-width: 780px) {
@@ -236,5 +316,28 @@ section p {
 		left: 5%;
 		bottom: 25%;
 		transform: translateY(75%);
+	}
+
+	section svg {
+		width: 380px;
+		top: 0%;
+		right: -50%;
+		transform: translate(50%, 0%);
+	}
+
+	.active-display svg {
+		width: 380px;
+		top: 0%;
+		right: 50%;
+		transform: translate(50%, 0%);
+	}
+
+	.navigator {
+		flex-direction: row;
+		height: fit-content;
+		width: 200px;
+		bottom: 10%;
+		left: 50%;
+		transform: translate(-50%, 90%);
 	}
 }
