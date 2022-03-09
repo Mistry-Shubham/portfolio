@@ -10,7 +10,7 @@
 
 :root {
 	--fontcolor: #e1e1e1;
-	--background: linear-gradient(125deg, #040e1b, #000);
+	--background: linear-gradient(125deg, #001825, #000000);
 	--red: #c80000;
 	--screen: #111;
 	--screen-theme: #ddd;
@@ -34,6 +34,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	height: 120px;
 	padding: 40px 60px;
 	transition: 0.4s all ease-in-out;
 	position: fixed;
@@ -90,8 +91,6 @@ nav ul li:last-child {
 #hamburger {
 	display: none;
 	cursor: pointer;
-	color: var(--fontcolor);
-	font-size: 1.8rem;
 }
 
 /* h1 Main */
@@ -347,6 +346,24 @@ section svg {
 		right: 5%;
 		transform: translateY(-50%);
 	}
+
+	section h2 {
+		font-size: 5rem;
+		width: 530px;
+		top: 65%;
+		left: -50%;
+		transform: translateY(-65%);
+		font-weight: 400;
+	}
+
+	.active-display h2 {
+		font-size: 5rem;
+		width: 530px;
+		top: 65%;
+		left: 10%;
+		transform: translateY(-65%);
+		font-weight: 400;
+	}
 }
 
 @media only screen and (max-width: 780px) {
@@ -396,8 +413,81 @@ section svg {
 		text-align: end;
 	}
 
+	/* h2 Menu Button */
+
 	#hamburger {
 		display: block;
+		position: relative;
+		height: 30px;
+		width: 30px;
+		overflow: hidden;
+	}
+
+	#hamburger:hover > #line-1,
+	#hamburger:hover > #line-2,
+	#hamburger:hover > #line-3 {
+		background-color: red;
+	}
+
+	#line-1 {
+		height: 2px;
+		width: 20px;
+		background-color: var(--fontcolor);
+		border-radius: 50vh;
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: 0.6s linear;
+	}
+
+	#line-2 {
+		height: 2px;
+		width: 20px;
+		background-color: var(--fontcolor);
+		border-radius: 50vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: 0.6s linear;
+	}
+
+	#line-3 {
+		height: 2px;
+		width: 20px;
+		background-color: var(--fontcolor);
+		border-radius: 50vh;
+		position: absolute;
+		top: 70%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: 0.6s linear;
+	}
+
+	#hamburger.change:hover > #line-1,
+	#hamburger.change:hover > #line-2,
+	#hamburger.change:hover > #line-3 {
+		background-color: var(--fontcolor);
+	}
+
+	#hamburger.change #line-2 {
+		width: 0px;
+		background-color: red;
+	}
+
+	#hamburger.change #line-1 {
+		top: 45%;
+		left: 18%;
+		transform: rotateZ(-45deg);
+		background-color: red;
+	}
+
+	#hamburger.change #line-3 {
+		top: 45%;
+		left: 18%;
+		transform: rotateZ(45deg);
+		background-color: red;
 	}
 
 	/* h1 Main */
