@@ -6,6 +6,12 @@ const main = document.querySelector('main');
 const sections = main.querySelectorAll('section');
 const navigator = document.querySelector('.navigator');
 const navigators = navigator.querySelectorAll('li');
+const carouselSlide = document.querySelector('.carousel-slide');
+const carouselCard = document.querySelectorAll('.carousel-card');
+const prevBtn = document.querySelector('#prev-btn');
+const nextBtn = document.querySelector('#next-btn');
+const projectPara = document.querySelector('#project-para');
+const technologies = document.querySelector('.technologies');
 
 sections[0].classList.add('active-display');
 navigators[0].classList.add('active');
@@ -50,3 +56,88 @@ main.addEventListener('scroll', () => {
 		}
 	});
 });
+
+// h1 Carousel
+let counter = 1;
+let width = carouselCard[0].clientWidth;
+let height = carouselCard[0].clientHeight;
+
+carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+nextBtn.style.height = `${height}px`;
+prevBtn.style.height = `${height}px`;
+
+window.addEventListener('resize', () => {
+	width = carouselCard[0].clientWidth;
+	carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+	height = carouselCard[0].clientHeight;
+	nextBtn.style.height = `${height}px`;
+	prevBtn.style.height = `${height}px`;
+});
+
+nextBtn.addEventListener('click', () => {
+	if (counter >= carouselCard.length - 1) {
+		return;
+	}
+	carouselSlide.classList.add('carousel-animate');
+	counter++;
+	carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+});
+
+prevBtn.addEventListener('click', () => {
+	if (counter <= 0) {
+		return;
+	}
+	carouselSlide.classList.add('carousel-animate');
+	counter--;
+	carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+});
+
+carouselSlide.addEventListener('transitionend', () => {
+	if (carouselCard[counter].id === 'first-clone') {
+		carouselSlide.classList.remove('carousel-animate');
+		counter = carouselCard.length - counter;
+		carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+	}
+
+	if (carouselCard[counter].id === 'last-clone') {
+		carouselSlide.classList.remove('carousel-animate');
+		counter = carouselCard.length - 2;
+		carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+	}
+	removeChild();
+	projectInfo();
+});
+
+// h1 Project page info
+
+const projectInfo = () => {
+	if (counter === 1) {
+		projectPara.innerText = 'App to keep track of your expenses.';
+		const techList = ['logo-react', 'logo-css3', 'logo-nodejs'];
+		appendTech(techList);
+	} else if (counter === 2) {
+		projectPara.innerText = 'Functional E-commerce website.';
+		const techList = ['logo-react', 'logo-nodejs', 'flash-sharp'];
+		appendTech(techList);
+	} else if (counter === 3) {
+		projectPara.innerText = 'Linkin park band fan-page.';
+		const techList = ['logo-html5', 'logo-css3'];
+		appendTech(techList);
+	}
+};
+
+const removeChild = () => {
+	while (technologies.hasChildNodes()) {
+		technologies.removeChild(technologies.firstChild);
+	}
+};
+
+const appendTech = (techList) => {
+	techList.forEach((tech) => {
+		const icon = document.createElement('ion-icon');
+		icon.setAttribute('name', `${tech}`);
+		technologies.appendChild(icon);
+	});
+};
+
+projectInfo();
