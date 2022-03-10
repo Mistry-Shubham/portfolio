@@ -1,10 +1,22 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import mail from './mail.js';
 
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
+
+app.post('/api/send-mail', (req, res) => {
+	const { name, email, subject, message } = req.body;
+
+	mail({ name, email, subject, message })
+		.then((result) => console.log('Mail sent'))
+		.catch((err) => console.error(`Email send error - ${err.message}`));
+	res.send('sent');
+});
 
 const __dirname = path.resolve();
 

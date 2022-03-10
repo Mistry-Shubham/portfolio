@@ -12,6 +12,7 @@ const prevBtn = document.querySelector('#prev-btn');
 const nextBtn = document.querySelector('#next-btn');
 const projectPara = document.querySelector('#project-para');
 const technologies = document.querySelector('.technologies');
+const form = document.querySelector('form');
 
 sections[0].classList.add('active-display');
 navigators[0].classList.add('active');
@@ -141,3 +142,28 @@ const appendTech = (techList) => {
 };
 
 projectInfo();
+
+// h1 Form
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const { firstname, lastname, email, subject, message } = e.target;
+	const data = {
+		name: `${firstname.value[0].toUpperCase()}${firstname.value.substring(
+			1
+		)} ${lastname.value[0].toUpperCase()}${lastname.value.substring(1)}`,
+		email: email.value,
+		subject: `${subject.value[0].toUpperCase()}${subject.value.substring(1)}`,
+		message: `${message.value[0].toUpperCase()}${message.value.substring(1)}`,
+	};
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	};
+
+	fetch('/api/send-mail', options);
+
+	e.target.reset();
+});

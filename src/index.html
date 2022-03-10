@@ -5,10 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Shubham Mistry</title>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
@@ -761,13 +757,77 @@
 							<h4>Expense Tracker</h4>
 						</div>
 					</div>
-					<i class="material-icons" id="prev-btn">navigate_before</i>
-					<i class="material-icons" id="next-btn">navigate_next</i>
+					<ion-icon name="chevron-back-sharp" id="prev-btn"></ion-icon>
+					<ion-icon name="chevron-forward-sharp" id="next-btn"></ion-icon>
+					<!-- <i class="material-icons" id="prev-btn">navigate_before</i>
+					<i class="material-icons" id="next-btn">navigate_next</i> -->
 				</div>
 			</section>
 			<section id="contact">
 				<h2>Contact</h2>
-				<p></p>
+				<div class="socials">
+					<a href="https://github.com/Mistry-Shubham" target="_blank">
+						<ion-icon name="logo-github"></ion-icon>
+					</a>
+					<a
+						href="https://stackoverflow.com/users/17831273/shubham-mistry"
+						target="_blank"
+					>
+						<ion-icon name="logo-stackoverflow"></ion-icon>
+					</a>
+					<a
+						href="https://in.linkedin.com/in/shubham-mistry-204218196"
+						target="_blank"
+					>
+						<ion-icon name="logo-linkedin"></ion-icon>
+					</a>
+				</div>
+				<form>
+					<div class="name">
+						<input
+							required
+							autocomplete="off"
+							type="text"
+							name="firstname"
+							pattern="^\S*$"
+							title="Cannot contain any space"
+							placeholder="Firstname *"
+						/>
+						<input
+							required
+							autocomplete="off"
+							type="text"
+							name="lastname"
+							pattern="^\S*$"
+							title="Cannot contain any space"
+							placeholder="Lastname *"
+						/>
+					</div>
+					<input
+						required
+						autocomplete="off"
+						type="email"
+						name="email"
+						placeholder="Email *"
+					/>
+					<input
+						required
+						autocomplete="off"
+						type="text"
+						name="subject"
+						pattern="^\S*$"
+						title="Cannot start with a space"
+						placeholder="Subject *"
+					/>
+					<textarea
+						required
+						autocomplete="off"
+						type="text"
+						name="message"
+						placeholder="Message *"
+					></textarea>
+					<button type="submit" class="primary-button">Send</button>
+				</form>
 			</section>
 		</main>
 		<ul class="navigator">
