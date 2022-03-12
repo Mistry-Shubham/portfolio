@@ -14,6 +14,20 @@ const projectPara = document.querySelector('#project-para');
 const technologies = document.querySelector('.technologies');
 const form = document.querySelector('form');
 const projectbtn = document.querySelectorAll('#projects a');
+const svgs = document.querySelectorAll('svg');
+
+svgs.forEach((svg) => {
+	if (window.innerWidth < 780) {
+		svg.setAttribute('width', '380px');
+		svg.setAttribute('height', '285px');
+	} else if (window.innerWidth < 980) {
+		svg.setAttribute('width', '500px');
+		svg.setAttribute('height', '375px');
+	} else {
+		svg.setAttribute('width', '680px');
+		svg.setAttribute('height', '510px');
+	}
+});
 
 sections[0].classList.add('active-display');
 navigators[0].classList.add('active');
@@ -69,6 +83,19 @@ nextBtn.style.height = `${height}px`;
 prevBtn.style.height = `${height}px`;
 
 window.addEventListener('resize', () => {
+	svgs.forEach((svg) => {
+		if (window.innerWidth < 780) {
+			svg.setAttribute('width', '380px');
+			svg.setAttribute('height', '285px');
+		} else if (window.innerWidth < 980) {
+			svg.setAttribute('width', '500px');
+			svg.setAttribute('height', '375px');
+		} else {
+			svg.setAttribute('width', '680px');
+			svg.setAttribute('height', '510px');
+		}
+	});
+
 	width = carouselCard[0].clientWidth;
 	carouselSlide.style.transform = `translateX(${-width * counter}px)`;
 	height = carouselCard[0].clientHeight;

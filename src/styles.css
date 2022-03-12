@@ -522,12 +522,20 @@ form .primary-button {
 		--carousel-width: 550px;
 	}
 
+	/* h2 Header */
+	nav ul li {
+		margin-right: 20px;
+	}
+
 	/* h1 Main */
 	section svg {
-		width: 580px;
-		top: 50%;
+		top: 48%;
 		right: -100%;
 		transform: translateY(-50%);
+	}
+
+	.active-display svg {
+		right: 0%;
 	}
 
 	section h2 {
@@ -766,8 +774,7 @@ form .primary-button {
 	}
 
 	section svg {
-		width: 380px;
-		top: 0%;
+		top: 20%;
 		right: -50%;
 		transform: translate(50%, 0%);
 	}
