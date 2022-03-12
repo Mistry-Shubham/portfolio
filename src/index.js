@@ -13,6 +13,7 @@ const nextBtn = document.querySelector('#next-btn');
 const projectPara = document.querySelector('#project-para');
 const technologies = document.querySelector('.technologies');
 const form = document.querySelector('form');
+const projectbtn = document.querySelectorAll('#projects a');
 
 sections[0].classList.add('active-display');
 navigators[0].classList.add('active');
@@ -93,6 +94,23 @@ prevBtn.addEventListener('click', () => {
 	carouselSlide.style.transform = `translateX(${-width * counter}px)`;
 });
 
+const openHref = [
+	'https://expensee-trackerr.herokuapp.com/',
+	'https://ragsntags.herokuapp.com/',
+	'https://linkin-park-1.herokuapp.com/',
+	'https://shubham-mistry.herokuapp.com/',
+];
+
+const sourceCodeHref = [
+	'https://github.com/Mistry-Shubham/expense-tracker',
+	'https://github.com/Mistry-Shubham/ragsntags',
+	'https://github.com/Mistry-Shubham/linkin-park',
+	'https://github.com/Mistry-Shubham/portfolio',
+];
+
+projectbtn[0].setAttribute('href', openHref[0]);
+projectbtn[1].setAttribute('href', sourceCodeHref[0]);
+
 carouselSlide.addEventListener('transitionend', () => {
 	if (carouselCard[counter].id === 'first-clone') {
 		carouselSlide.classList.remove('carousel-animate');
@@ -107,23 +125,43 @@ carouselSlide.addEventListener('transitionend', () => {
 	}
 	removeChild();
 	projectInfo();
+
+	projectbtn[0].setAttribute('href', openHref[counter - 1]);
+	projectbtn[1].setAttribute('href', sourceCodeHref[counter - 1]);
 });
 
 // h1 Project page info
 
 const projectInfo = () => {
+	projectbtn[0].style.display = 'block';
+
 	if (counter === 1) {
 		projectPara.innerText = 'App to keep track of your expenses.';
-		const techList = ['logo-react', 'logo-css3', 'logo-nodejs'];
+		const techList = [
+			'logo-react',
+			'logo-javascript',
+			'logo-css3',
+			'logo-nodejs',
+		];
 		appendTech(techList);
 	} else if (counter === 2) {
 		projectPara.innerText = 'Functional E-commerce website.';
-		const techList = ['logo-react', 'logo-nodejs', 'flash-sharp'];
+		const techList = [
+			'logo-react',
+			'logo-javascript',
+			'logo-nodejs',
+			'flash-sharp',
+		];
 		appendTech(techList);
 	} else if (counter === 3) {
 		projectPara.innerText = 'Linkin park band fan-page.';
 		const techList = ['logo-html5', 'logo-css3'];
 		appendTech(techList);
+	} else {
+		projectPara.innerText = 'My portfolio';
+		const techList = ['logo-javascript', 'logo-html5', 'logo-css3'];
+		appendTech(techList);
+		projectbtn[0].style.display = 'none';
 	}
 };
 
