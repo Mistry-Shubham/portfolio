@@ -124,6 +124,7 @@ prevBtn.addEventListener('click', () => {
 const openHref = [
 	'https://expensee-trackerr.herokuapp.com/',
 	'https://ragsntags.herokuapp.com/',
+	'https://pokemon898.herokuapp.com/',
 	'https://linkin-park-1.herokuapp.com/',
 	'https://shubham-mistry.herokuapp.com/',
 ];
@@ -131,6 +132,7 @@ const openHref = [
 const sourceCodeHref = [
 	'https://github.com/Mistry-Shubham/expense-tracker',
 	'https://github.com/Mistry-Shubham/ragsntags',
+	'https://github.com/Mistry-Shubham/pokemon',
 	'https://github.com/Mistry-Shubham/linkin-park',
 	'https://github.com/Mistry-Shubham/portfolio',
 ];
@@ -181,6 +183,15 @@ const projectInfo = () => {
 		];
 		appendTech(techList);
 	} else if (counter === 3) {
+		projectPara.innerText = 'Pokemon Cards website with help of pokeapi.';
+		const techList = [
+			'logo-react',
+			'logo-javascript',
+			'logo-sass',
+			'logo-nodejs',
+		];
+		appendTech(techList);
+	} else if (counter === 4) {
 		projectPara.innerText = 'Linkin park band fan-page.';
 		const techList = ['logo-html5', 'logo-css3'];
 		appendTech(techList);
