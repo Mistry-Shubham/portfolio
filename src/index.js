@@ -122,11 +122,11 @@ prevBtn.addEventListener('click', () => {
 });
 
 const openHref = [
-	'https://expensee-trackerr.herokuapp.com/',
-	'https://ragsntags.herokuapp.com/',
-	'https://pokemon898.herokuapp.com/',
-	'https://linkin-park-1.herokuapp.com/',
-	'https://shubham-mistry.herokuapp.com/',
+	'https://expensee-trackerr.cyclic.app/',
+	'https://ragsntags.cyclic.app/',
+	'https://pokemon898.cyclic.app/',
+	'https://linkin-park-1.cyclic.app/',
+	'https://shubham-mistry.cyclic.app/',
 ];
 
 const sourceCodeHref = [

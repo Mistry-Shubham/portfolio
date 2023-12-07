@@ -1,5 +1,5 @@
-import express from 'express';
 import dotenv from 'dotenv';
+import express from 'express';
 import path from 'path';
 import mail from './mail.js';
 
@@ -21,10 +21,10 @@ app.post('/api/send-mail', (req, res) => {
 const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'dist')));
+	app.use(express.static(path.join(__dirname, 'src')));
 
 	app.get('/', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+		res.sendFile(path.resolve(__dirname, 'src', 'index.html'));
 	});
 } else {
 	app.get('/', (req, res) => {

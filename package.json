@@ -5,8 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node server",
-		"dev": "nodemon server",
-		"build": "parcel build src/index.html"
+		"dev": "nodemon server"
 	},
 	"repository": {
 		"type": "git",
@@ -21,10 +20,6 @@
 	"dependencies": {
 		"dotenv": "^16.0.0",
 		"express": "^4.17.3",
-		"googleapis": "^96.0.0",
 		"nodemailer": "^6.7.2"
-	},
-	"devDependencies": {
-		"parcel": "^2.3.2"
 	}
 }
