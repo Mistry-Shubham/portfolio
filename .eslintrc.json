@@ -1,0 +1,21 @@
+{
+  "extends": ["next/core-web-vitals", "airbnb"],
+  "rules": {
+    "react/prop-types": "off",
+    "quotes": "off",
+    "jsx-quotes": "off",
+    "no-console": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
