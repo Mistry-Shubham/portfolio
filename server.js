@@ -13,9 +13,14 @@ app.post('/api/send-mail', (req, res) => {
 	const { name, email, subject, message } = req.body;
 
 	mail({ name, email, subject, message })
-		.then((result) => console.log('Mail sent'))
-		.catch((err) => console.error(`Email send error - ${err.message}`));
-	res.send('sent');
+		.then((result) => {
+			console.log('Mail sent');
+			res.send({ message: 'sent' });
+		})
+		.catch((err) => {
+			console.error(`Email send error - ${err.message}`);
+			throw new Error('Failed to send Mail');
+		});
 });
 
 const __dirname = path.resolve();

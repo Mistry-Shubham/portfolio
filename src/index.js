@@ -239,7 +239,17 @@ form.addEventListener('submit', (e) => {
 		body: JSON.stringify(data),
 	};
 
-	fetch('/api/send-mail', options);
-
-	e.target.reset();
+	fetch('/api/send-mail', options)
+		.then((res) => {
+			return res.json();
+		})
+		.then((data) => {
+			if (data.message === 'sent') {
+				alert('Mail Sent!');
+			}
+		})
+		.catch(() => {
+			alert('Failed to send mail, Please try again');
+		})
+		.finally(e.target.reset());
 });
