@@ -1,25 +1,26 @@
 {
-	"name": "portfolio",
-	"version": "1.0.0",
-	"description": "My Portfolio",
-	"type": "module",
-	"scripts": {
-		"start": "node server",
-		"dev": "nodemon server"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Mistry-Shubham/portfolio.git"
-	},
-	"author": "Shubham Mistry",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Mistry-Shubham/portfolio/issues"
-	},
-	"homepage": "https://github.com/Mistry-Shubham/portfolio#readme",
-	"dependencies": {
-		"dotenv": "^16.0.0",
-		"express": "^4.17.3",
-		"nodemailer": "^6.7.2"
-	}
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio",
+  "type": "module",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "build": "npm i && echo build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mistry-Shubham/portfolio.git"
+  },
+  "author": "Shubham Mistry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mistry-Shubham/portfolio/issues"
+  },
+  "homepage": "https://github.com/Mistry-Shubham/portfolio#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nodemailer": "^6.7.2"
+  }
 }
